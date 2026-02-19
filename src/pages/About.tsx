@@ -28,18 +28,28 @@ export function About() {
 
   const team = [
     {
-      name: 'Sarah Green',
-      role: 'Founder & CEO',
+      name: 'Saksham Ojha',
+      role: 'Developer',
       description: 'Environmental scientist passionate about sustainable living'
     },
     {
-      name: 'Michael Chen',
-      role: 'Head of Product',
+      name: 'Parth Makwana',
+      role: 'Developer',
       description: 'Tech entrepreneur committed to eco-innovation'
     },
     {
-      name: 'Emma Thompson',
-      role: 'Community Manager',
+      name: 'Shivam Parmar',
+      role: 'Developer',
+      description: 'Building connections in the eco-conscious community'
+    },
+    {
+      name: 'Sanyam Mujavadia',
+      role: 'Developer',
+      description: 'Tech entrepreneur committed to eco-innovation'
+    },
+    {
+      name: 'Maharshi Patel',
+      role: 'Developer',
       description: 'Building connections in the eco-conscious community'
     },
   ];
@@ -138,7 +148,7 @@ export function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-green-900 text-white">
+      {/* <section className="py-16 bg-green-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -159,7 +169,7 @@ export function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

@@ -105,7 +105,7 @@ service cloud.firestore {
       allow update, delete: if request.auth != null && 
                               (resource.data.userId == request.auth.uid || 
                                get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
-    }
+    } 
     
     // Blog collection
     match /blog/{postId} {

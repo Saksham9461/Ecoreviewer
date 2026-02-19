@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
-import { Clock, User, Calendar } from 'lucide-react';
+import { Clock, User, Calendar, Plus } from 'lucide-react';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase/config';
+import { AddBlogModal } from '../components/AddBlogModel';
 
 interface BlogPost {
   id: string;
@@ -21,10 +22,15 @@ interface BlogPost {
 export function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetchBlogPosts();
   }, []);
+
+   const handleBlogAdded = () => {
+    fetchBlogPosts();
+  };
 
   const fetchBlogPosts = async () => {
     try {
@@ -55,13 +61,24 @@ export function Blog() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Tips, guides, and inspiration for sustainable living
           </p>
+
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition flex items-center gap-2 justify-center"
+          >
+            <Plus className="w-5 h-5" />
+            Add Blog
+          </button>
         </div>
 
         {/* Blog Posts */}
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="bg-white rounded-2xl shadow-md overflow-hidden animate-pulse">
+              <div
+                key={i}
+                className="bg-white rounded-2xl shadow-md overflow-hidden animate-pulse"
+              >
                 <div className="bg-gray-200 h-48"></div>
                 <div className="p-6">
                   <div className="h-4 bg-gray-200 rounded mb-2"></div>
@@ -107,10 +124,10 @@ export function Blog() {
                   </div>
                   <div className="flex items-center gap-1 text-xs text-gray-500 mt-2">
                     <Calendar className="w-4 h-4" />
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
+                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
                     })}
                   </div>
                 </div>
@@ -125,6 +142,12 @@ export function Blog() {
       </div>
 
       <Footer />
+
+      <AddBlogModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onBlogAdded={handleBlogAdded}
+      />
     </div>
   );
 }

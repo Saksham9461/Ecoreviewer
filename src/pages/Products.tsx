@@ -8,7 +8,7 @@ import { Search, Filter, Plus, X } from 'lucide-react';
 import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
-
+import { seedDatabase } from "../firebase/seedData";
 interface Product {
   id: string;
   name: string;
@@ -31,6 +31,11 @@ export function Products() {
   const [sortBy, setSortBy] = useState('rating');
   const [showFilters, setShowFilters] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSeed = async () => {
+    await seedDatabase();
+    alert("Database Seeded ✅");
+  };
 
   const categories = [
     'All',
@@ -112,16 +117,19 @@ export function Products() {
   return (
     <div className="min-h-screen">
       <Navbar />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="mb-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <div>
-              <h1 className="text-4xl font-bold text-green-800 mb-2">Eco Products</h1>
-              <p className="text-gray-600">Discover sustainable products for a greener lifestyle</p>
+              <h1 className="text-4xl font-bold text-green-800 mb-2">
+                Eco Products
+              </h1>
+              <p className="text-gray-600">
+                Discover sustainable products for a greener lifestyle
+              </p>
             </div>
-            {(currentUser && isAdmin) && (
+            {/* {currentUser && isAdmin && ( */}
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition flex items-center gap-2 justify-center"
@@ -129,7 +137,7 @@ export function Products() {
                 <Plus className="w-5 h-5" />
                 Add Product
               </button>
-            )}
+            {/* )} */}
           </div>
 
           {/* Search and Filter Bar */}
@@ -167,7 +175,9 @@ export function Products() {
 
         <div className="flex gap-8">
           {/* Filters Sidebar */}
-          <div className={`${showFilters ? 'block' : 'hidden'} md:block w-full md:w-64 flex-shrink-0`}>
+          <div
+            className={`${showFilters ? "block" : "hidden"} md:block w-full md:w-64 flex-shrink-0`}
+          >
             <div className="bg-white rounded-xl shadow-md p-6 sticky top-24">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-gray-800">Categories</h3>
@@ -187,8 +197,8 @@ export function Products() {
                     onClick={() => setSelectedCategory(category)}
                     className={`w-full text-left px-4 py-2 rounded-lg transition ${
                       selectedCategory === category
-                        ? 'bg-green-600 text-white'
-                        : 'hover:bg-gray-100 text-gray-700'
+                        ? "bg-green-600 text-white"
+                        : "hover:bg-gray-100 text-gray-700"
                     }`}
                   >
                     {category}
@@ -203,7 +213,10 @@ export function Products() {
             {loading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {Array.from({ length: 9 }).map((_, i) => (
-                  <div key={i} className="bg-white rounded-2xl shadow-md p-6 animate-pulse">
+                  <div
+                    key={i}
+                    className="bg-white rounded-2xl shadow-md p-6 animate-pulse"
+                  >
                     <div className="bg-gray-200 h-48 rounded-xl mb-4"></div>
                     <div className="h-4 bg-gray-200 rounded mb-2"></div>
                     <div className="h-4 bg-gray-200 rounded w-2/3"></div>
@@ -213,7 +226,8 @@ export function Products() {
             ) : filteredProducts.length > 0 ? (
               <>
                 <p className="text-gray-600 mb-6">
-                  Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
+                  Showing {filteredProducts.length}{" "}
+                  {filteredProducts.length === 1 ? "product" : "products"}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredProducts.map((product) => (
@@ -236,11 +250,17 @@ export function Products() {
                         <div className="text-sm text-green-600 font-semibold mb-1">
                           {product.category}
                         </div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">{product.name}</h3>
-                        <p className="text-gray-600 text-sm mb-3">{product.brand}</p>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                          {product.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm mb-3">
+                          {product.brand}
+                        </p>
                         <div className="flex items-center justify-between mb-3">
                           <LeafRating rating={product.rating} />
-                          <span className="text-sm text-gray-500">({product.reviewCount})</span>
+                          <span className="text-sm text-gray-500">
+                            ({product.reviewCount})
+                          </span>
                         </div>
                         <div className="text-2xl font-bold text-green-600">
                           ${product.price.toFixed(2)}
@@ -253,7 +273,9 @@ export function Products() {
             ) : (
               <div className="text-center py-12">
                 <p className="text-gray-500 text-lg mb-4">No products found</p>
-                <p className="text-gray-400">Try adjusting your search or filters</p>
+                <p className="text-gray-400">
+                  Try adjusting your search or filters
+                </p>
               </div>
             )}
           </div>

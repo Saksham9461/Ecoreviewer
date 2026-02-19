@@ -6,12 +6,12 @@ import { getStorage } from 'firebase/storage';
 // Firebase configuration
 // Replace these with your actual Firebase config from Firebase Console
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY_HERE",
-  authDomain: "YOUR_AUTH_DOMAIN_HERE",
-  projectId: "YOUR_PROJECT_ID_HERE",
-  storageBucket: "YOUR_STORAGE_BUCKET_HERE",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID_HERE",
-  appId: "YOUR_APP_ID_HERE"
+  apiKey: "AIzaSyDMy78y-NxWW2mTFxoA4o0UMQiZR-uySYY",
+  authDomain: "ecoreviewer-b8c33.firebaseapp.com",
+  projectId: "ecoreviewer-b8c33",
+  storageBucket: "ecoreviewer-b8c33.firebasestorage.app",
+  messagingSenderId: "432382138485",
+  appId: "1:432382138485:web:7a8d982a9eac52e3f3803c"
 };
 
 // Initialize Firebase

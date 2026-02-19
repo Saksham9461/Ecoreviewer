@@ -1,4 +1,4 @@
-import { Leaf, Facebook, Twitter, Instagram, Mail } from 'lucide-react';
+import { Leaf, Facebook, Twitter, Instagram, Mail, Github } from 'lucide-react';
 import { Link } from 'react-router';
 
 export function Footer() {
@@ -36,7 +36,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="font-semibold mb-4">Support</h3>
             <div className="space-y-2">
               <Link to="/contact" className="block text-green-200 hover:text-white transition text-sm">
@@ -52,27 +52,24 @@ export function Footer() {
                 FAQ
               </a>
             </div>
-          </div>
+          </div> */}
 
           <div>
             <h3 className="font-semibold mb-4">Connect With Us</h3>
             <div className="flex gap-4 mb-4">
-              <a href="#" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
-                <Facebook className="w-5 h-5" />
+              <a href="https://github.com/Saksham9461" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
+                <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
+              <a href="https://x.com/sakshamojha6030" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
+              <a href="https://www.instagram.com/sakshamojha7/" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
+              <a href="mailto:sakshamojha9461@gmail.com" className="bg-green-800 p-2 rounded-full hover:bg-green-700 transition">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
-            <p className="text-green-200 text-sm">
-              Subscribe to our newsletter for eco-tips and updates.
-            </p>
           </div>
         </div>
 
