@@ -1,0 +1,143 @@
+<div class="min-h-screen bg-gray-50 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-2">Eco Products</h1>
+      <p class="text-gray-600">Discover sustainable products reviewed by our community</p>
+    </div>
+
+    <!-- Search and Filters -->
+    <form method="GET" action="/products" class="mb-8 space-y-4">
+      <div class="flex gap-4">
+        <div class="relative flex-1">
+          <svg class="absolute left-3 top-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input
+            type="text"
+            name="search"
+            placeholder="Search eco products..."
+            value="<%= query.search || '' %>"
+            class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+        </div>
+        <button
+          type="button"
+          onclick="document.getElementById('filters').classList.toggle('hidden')"
+          class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-white transition-colors flex items-center gap-2"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          </svg>
+          Filters
+        </button>
+      </div>
+
+      <div id="filters" class="<%= showFilters ? '' : 'hidden' %> bg-white rounded-lg shadow-sm p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Category</label>
+            <select name="category" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+              <option value="">All Categories</option>
+              <% categories.forEach(cat => { %>
+                <option value="<%= cat %>" <%= query.category === cat ? 'selected' : '' %>><%= cat %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Minimum Rating</label>
+            <select name="rating" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+              <option value="">All Ratings</option>
+              <option value="4" <%= query.rating === '4' ? 'selected' : '' %>>4+ Leaves</option>
+              <option value="5" <%= query.rating === '5' ? 'selected' : '' %>>5 Leaves</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Certifications</label>
+            <div class="space-y-2">
+              <% certifications.slice(0, 4).forEach(cert => { %>
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="cert-<%= cert %>"
+                    name="certifications[]"
+                    value="<%= cert %>"
+                    <%= (query.certifications || []).includes(cert) ? 'checked' : '' %>
+                    class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
+                  />
+                  <label for="cert-<%= cert %>" class="ml-2 text-sm text-gray-700 cursor-pointer">
+                    <%= cert %>
+                  </label>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+            Apply Filters
+          </button>
+          <a href="/products" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+            Clear Filters
+          </a>
+        </div>
+      </div>
+    </form>
+
+    <!-- Results -->
+    <div class="mb-4 text-gray-600">
+      Showing <%= products.length %> products
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% products.forEach(product => { %>
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+          <a href="/products/<%= product.id %>">
+            <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full h-56 object-cover" />
+          </a>
+          <div class="p-4">
+            <span class="inline-block px-2 py-1 border border-gray-300 text-gray-700 text-xs rounded mb-2">
+              <%= product.category %>
+            </span>
+            <h3 class="font-semibold mb-2">
+              <a href="/products/<%= product.id %>" class="hover:text-green-600">
+                <%= product.name %>
+              </a>
+            </h3>
+            <div class="flex items-center gap-1 mb-2">
+              <% for(let i = 0; i < product.rating; i++) { %>
+                <svg class="w-4 h-4 fill-green-600 text-green-600" viewBox="0 0 24 24">
+                  <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              <% } %>
+              <span class="text-sm text-gray-600 ml-1">(<%= product.reviews %>)</span>
+            </div>
+            <div class="flex gap-2 mb-3 flex-wrap">
+              <% product.certifications.forEach(cert => { %>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"><%= cert %></span>
+              <% }) %>
+            </div>
+            <div class="text-lg font-semibold text-green-600">$<%= product.price %></div>
+          </div>
+          <div class="p-4 pt-0">
+            <a href="/reviews/add?productId=<%= product.id %>" class="block w-full text-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+              Add Review
+            </a>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <% if (products.length === 0) { %>
+      <div class="text-center py-16">
+        <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+        <h3 class="text-xl font-semibold mb-2">No products found</h3>
+        <p class="text-gray-600">Try adjusting your filters or search query</p>
+      </div>
+    <% } %>
+  </div>
+</div>
