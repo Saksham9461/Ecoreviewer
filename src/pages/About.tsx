@@ -30,27 +30,32 @@ export function About() {
     {
       name: 'Saksham Ojha',
       role: 'Developer',
-      description: 'Environmental scientist passionate about sustainable living'
+      description: 'Environmental scientist passionate about sustainable living',
+      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       name: 'Parth Makwana',
       role: 'Developer',
-      description: 'Tech entrepreneur committed to eco-innovation'
+      description: 'Tech entrepreneur committed to eco-innovation',
+      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       name: 'Shivam Parmar',
       role: 'Developer',
-      description: 'Building connections in the eco-conscious community'
+      description: 'Building connections in the eco-conscious community',
+      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       name: 'Sanyam Mujavadia',
       role: 'Developer',
-      description: 'Tech entrepreneur committed to eco-innovation'
+      description: 'Tech entrepreneur committed to eco-innovation',
+      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       name: 'Maharshi Patel',
       role: 'Developer',
-      description: 'Building connections in the eco-conscious community'
+      description: 'Building connections in the eco-conscious community',
+      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
   ];
 
@@ -135,7 +140,11 @@ export function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="h-64 bg-gradient-to-br from-green-400 to-green-600"></div>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="h-64 w-full object-cover"
+                />
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-800 mb-1">{member.name}</h3>
                   <p className="text-green-600 font-semibold mb-3">{member.role}</p>
@@ -146,31 +155,6 @@ export function About() {
           </div>
         </div>
       </section>
-
-      {/* Stats Section */}
-      {/* <section className="py-16 bg-green-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">50K+</div>
-              <div className="text-green-200">Active Users</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">10K+</div>
-              <div className="text-green-200">Eco Products</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">100K+</div>
-              <div className="text-green-200">Reviews</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-green-200">Verified Brands</div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       <Footer />
     </div>
   );

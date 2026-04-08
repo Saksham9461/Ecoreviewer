@@ -34,19 +34,19 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'support@ecoreviewer.com',
-      link: 'mailto:support@ecoreviewer.com'
+      content: 'sakshamojha9461@gmail.com',
+      link: 'mailto:sakshamojha9461@gmail.com'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      content: '+91 9461286197',
+      link: 'tel:+919461286197'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      content: '123 Green Street, Eco City, EC 12345',
+      content: 'Ahmedabad, Gujarat, India',
       link: '#'
     },
   ];
@@ -79,9 +79,9 @@ export function Contact() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="flex justify-center">
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-md p-8">
+          <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -94,7 +94,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
-                  placeholder="John Doe"
+                  placeholder="Your name"
                   required
                 />
               </div>
@@ -109,7 +109,7 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
-                  placeholder="john@example.com"
+                  placeholder="name@example.com"
                   required
                 />
               </div>
@@ -162,47 +162,6 @@ export function Contact() {
                 )}
               </button>
             </form>
-          </div>
-
-          {/* Map / Additional Info */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-md p-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Office Hours</h2>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Friday</span>
-                  <span className="font-semibold text-gray-800">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Saturday</span>
-                  <span className="font-semibold text-gray-800">10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Sunday</span>
-                  <span className="font-semibold text-gray-800">Closed</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-600 to-green-800 rounded-2xl shadow-md p-8 text-white">
-              <h2 className="text-2xl font-bold mb-4">Need Immediate Help?</h2>
-              <p className="text-green-100 mb-6">
-                Check out our FAQ section for quick answers to common questions, or browse our help center for detailed guides and tutorials.
-              </p>
-              <button className="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition">
-                Visit Help Center
-              </button>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-              <div className="h-64 bg-gray-200 relative">
-                <img
-                  src="https://images.unsplash.com/photo-1577375729152-4c8b5fcda381?w=600"
-                  alt="Office location"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>
