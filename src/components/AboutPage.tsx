@@ -5,11 +5,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function AboutPage() {
   const team = [
-    { name: 'Saksham Ojha', role: 'Founder & CEO', avatar: 'SO', bio: 'Environmental scientist passionate about sustainable living' },
-    { name: 'Parth Makwana', role: 'CTO', avatar: 'PM', bio: 'Tech enthusiast building tools for positive change' },
-    { name: 'Sanyam Mujavadia', role: 'Head of Community', avatar: 'SM', bio: 'Connecting eco-warriors worldwide' },
-    { name: 'Shivam Parmar', role: 'Product Lead', avatar: 'SP', bio: 'Designing sustainable solutions' },
-    { name: 'Maharshi Patel', role: 'Team Lead', avatar: 'MP', bio: 'Crafting green solutions' },
+    { name: 'Saksham Ojha', role: 'Developer', avatar: 'SO', bio: 'Environmental scientist passionate about sustainable living' }
   ];
 
   const values = [
