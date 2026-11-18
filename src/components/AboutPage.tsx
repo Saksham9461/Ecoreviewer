@@ -1,13 +1,8 @@
 import { Leaf, Target, Heart, Users, Award } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
-import { Avatar, AvatarFallback } from './ui/avatar';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function AboutPage() {
-  const team = [
-    { name: 'Saksham Ojha', role: 'Developer', avatar: 'SO', bio: 'Environmental scientist passionate about sustainable living' }
-  ];
-
   const values = [
     {
       icon: Target,
@@ -103,35 +98,6 @@ export function AboutPage() {
                       <p className="text-muted-foreground">{value.description}</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-xl text-muted-foreground">
-              Passionate people working to make sustainable living easier
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="p-6">
-                  <Avatar className="w-24 h-24 mx-auto mb-4 bg-primary">
-                    <AvatarFallback className="bg-primary text-primary-foreground text-2xl">
-                      {member.avatar}
-                    </AvatarFallback>
-                  </Avatar>
-                  <h3 className="font-semibold mb-1">{member.name}</h3>
-                  <p className="text-sm text-primary mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
                 </CardContent>
               </Card>
             ))}

@@ -75,6 +75,17 @@ export function Footer() {
 
         <div className="border-t border-green-800 mt-8 pt-8 text-center text-green-200 text-sm">
           <p>&copy; 2026 ECO REVIEWER. All rights reserved.</p>
+          <p className="mt-2">
+            Developed by{' '}
+            <a
+              href="https://sakshamojha.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition"
+            >
+              Saksham Ojha
+            </a>
+          </p>
         </div>
       </div>
     </footer>

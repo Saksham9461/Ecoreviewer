@@ -26,15 +26,6 @@ export function About() {
     },
   ];
 
-  const team = [
-    {
-      name: 'Saksham Ojha',
-      role: 'Developer',
-      description: 'Environmental scientist passionate about sustainable living',
-      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -103,34 +94,6 @@ export function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Passionate individuals dedicated to sustainable living
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="h-64 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-1">{member.name}</h3>
-                  <p className="text-green-600 font-semibold mb-3">{member.role}</p>
-                  <p className="text-gray-600">{member.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       <Footer />
     </div>
   );
