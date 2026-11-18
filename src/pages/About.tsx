@@ -33,30 +33,6 @@ export function About() {
       description: 'Environmental scientist passionate about sustainable living',
       image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
-    {
-      name: 'Parth Makwana',
-      role: 'Developer',
-      description: 'Tech entrepreneur committed to eco-innovation',
-      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-    },
-    {
-      name: 'Shivam Parmar',
-      role: 'Developer',
-      description: 'Building connections in the eco-conscious community',
-      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-    },
-    {
-      name: 'Sanyam Mujavadia',
-      role: 'Developer',
-      description: 'Tech entrepreneur committed to eco-innovation',
-      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-    },
-    {
-      name: 'Maharshi Patel',
-      role: 'Developer',
-      description: 'Building connections in the eco-conscious community',
-      image: 'https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-    },
   ];
 
   return (
